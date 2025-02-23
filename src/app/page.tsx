@@ -10,7 +10,7 @@ import TeamSection from "@/sections/TeamSection";
 import { Testimonial } from "@/sections/Testimonial";
 import { Testimonials } from "@/sections/Testimonials";
 import { Tracking } from "@/sections/Tracking";
-
+import { Analytics } from "@vercel/analytics/react"
 export default function Home() {
   return (
     <>

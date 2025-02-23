@@ -3,7 +3,16 @@ import CheckIcon from "@/assets/check.svg";
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 
-const pricingTiers = [
+interface PricingTier {
+  title: string;
+  monthlyPrice: number;
+  buttonText: string;
+  popular: boolean;
+  inverse: boolean;
+  features: string[];
+}
+
+const pricingTiers: PricingTier[] = [
   {
     title: "Free",
     monthlyPrice: 0,
@@ -57,88 +66,77 @@ const pricingTiers = [
 
 export const Pricing = () => {
   return (
-    <section className="py-24 bg-white">
-      <div className="container">
-        <div className="section-heading">
-          <h2 className="section-title">Pricing</h2>
-          <p className="section-description mt-5">
-            Free forever. Upgrade for unlimited tasks, better security, and
-            exclusive features.
-          </p>
+    <div className="py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Simple, transparent pricing
+          </h2>
         </div>
-        <div className="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:items-end lg:justify-center">
-          {pricingTiers.map(
-            ({
-              title,
-              monthlyPrice,
-              buttonText,
-              popular,
-              inverse,
-              features,
-            }) => (
-              <div
-                className={twMerge(
-                  "card",
-                  inverse === true && "border-black bg-black text-white"
-                )}
-              >
-                <div className="flex justify-between">
-                  <h3
-                    className={twMerge(
-                      "text-lg font-bold text-black/50",
-                      inverse === true && "text-white/60"
-                    )}
-                  >
-                    {title}
-                  </h3>
-                  {popular === true && (
-                    <div className="inline-flex text-sm px-4 py-1.5 rounded-xl border border-white/20">
-                      <motion.span
-                        animate={{
-                          backgroundPositionX: "100%",
-                        }}
-                        transition={{
-                          duration: 1,
-                          repeat: Infinity,
-                          ease: "linear",
-                          repeatType: "loop",
-                        }}
-                        className="bg-[linear-gradient(to_right,#DD7DDF,#E1CD86,#BBCB92,#71C2EF,#3BFFFF,#DD7DDF,#E1CD86,#BBCB92,#71C2EF,#3BFFFF,#DD7DDF)] [background-size:200%] text-transparent bg-clip-text font-medium"
+        <div className="mt-16 flex flex-wrap justify-center gap-8">
+          {pricingTiers.map((tier, index) => (
+            <div
+              key={`${tier.title}-${index}`}
+              className={`relative rounded-2xl p-8 ${
+                tier.inverse
+                  ? "bg-gray-900 text-white"
+                  : "ring-1 ring-gray-200 bg-white"
+              }`}
+            >
+              <div className="flex flex-col gap-6">
+                <div>
+                  <h3 className="text-2xl font-bold">{tier.title}</h3>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold">
+                      ${tier.monthlyPrice}
+                    </span>
+                    <span className="text-base font-semibold text-gray-500">
+                      /month
+                    </span>
+                  </div>
+                </div>
+                <ul className="space-y-4">
+                  {tier.features.map((feature, featureIndex) => (
+                    <li
+                      key={`${tier.title}-feature-${featureIndex}`}
+                      className="flex items-center gap-3"
+                    >
+                      <svg
+                        className={`h-5 w-5 ${
+                          tier.inverse ? "text-white" : "text-blue-600"
+                        }`}
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
                       >
-                        Popular
-                      </motion.span>
-                    </div>
-                  )}
-                </div>
-                <div className="flex items-baseline gap-1 mt-[30px]">
-                  <span className="text-4xl font-bold tracking-tighter leading-none">
-                    ${monthlyPrice}
-                  </span>
-                  <span className="tracking-tight font-bold text-black/50">
-                    /month
-                  </span>
-                </div>
-                <button
-                  className={twMerge(
-                    "btn btn-primary w-full mt-[30px]",
-                    inverse === true && "bg-white text-black"
-                  )}
-                >
-                  {buttonText}
-                </button>
-                <ul className="flex flex-col gap-5 mt-8">
-                  {features.map((feature) => (
-                    <li className="text-sm flex items-center gap-4">
-                      <CheckIcon className="h-6 w-6" />
-                      <span>{feature}</span>
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      {feature}
                     </li>
                   ))}
                 </ul>
+                <button
+                  className={`mt-8 w-full rounded-lg px-4 py-2 text-center text-sm font-semibold ${
+                    tier.inverse
+                      ? "bg-white text-gray-900 hover:bg-gray-100"
+                      : "bg-blue-600 text-white hover:bg-blue-700"
+                  } transition-colors duration-200`}
+                >
+                  {tier.buttonText}
+                </button>
               </div>
-            )
-          )}
+              {tier.popular && (
+                <div className="absolute -top-4 left-0 right-0 mx-auto w-32 rounded-full bg-blue-600 px-3 py-1 text-center text-sm font-semibold text-white">
+                  Most Popular
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };

@@ -66,7 +66,7 @@ const ContactUs = () => {
               Contact Us
             </h2>
             <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E] mt-5">
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
           </p>
         </div>
 
@@ -185,7 +185,7 @@ const ContactUs = () => {
 
             {status === 'success' && (
               <div className="bg-green-50 text-green-800 rounded-lg p-4 flex items-center justify-center animate-fade-in">
-                <p>Message sent successfully! We'll get back to you soon.</p>
+                <p>Message sent successfully! We&apos;ll get back to you soon.</p>
               </div>
             )}
             {status === 'error' && (

@@ -14,13 +14,13 @@ import React from 'react';
 
 const testimonials = [
   {
-    text: "MedTrack's real-time dashboard has revolutionized how we manage our inventory. We can now track every product from manufacture to delivery with complete transparency.",
+    text: "MedTrack&apos;s real-time dashboard has revolutionized how we manage our inventory. We can now track every product from manufacture to delivery with complete transparency.",
     imageSrc: avatar1.src,
     name: "Dr. Rajesh Kumar",
     username: "Metro Hospital, Delhi",
   },
   {
-    text: "The 2-step verification system gives us confidence that all our medical supplies are authentic. We've eliminated counterfeit products completely since implementing MedTrack.",
+    text: "The 2-step verification system gives us confidence that all our medical supplies are authentic. We&apos;ve eliminated counterfeit products completely since implementing MedTrack.",
     imageSrc: avatar2.src,
     name: "Priya Sharma",
     username: "Quality Manager, Apollo Pharmacy",
@@ -32,7 +32,7 @@ const testimonials = [
     username: "AIIMS Research Division",
   },
   {
-    text: "Shipment tracking has never been easier. We've reduced delivery discrepancies by 67% and improved customer satisfaction scores to an all-time high.",
+    text: "Shipment tracking has never been easier. We&apos;ve reduced delivery discrepancies by 67% and improved customer satisfaction scores to an all-time high.",
     imageSrc: avatar4.src,
     name: "Vikram Mehta",
     username: "LogiMed Distributors",
@@ -62,7 +62,7 @@ const testimonials = [
     username: "Epidemiologist, ICMR",
   },
   {
-    text: "Our patients love being able to verify medication authenticity through the app. It's built trust in our brand and increased customer loyalty measurably.",
+    text: "Our patients love being able to verify medication authenticity through the app. It&apos;s built trust in our brand and increased customer loyalty measurably.",
     imageSrc: avatar9.src,
     name: "Rahul Gupta",
     username: "Customer Experience, MedPlus",
@@ -124,7 +124,7 @@ export const Testimonial = () => {
                 What Our Clients Say
               </h2>
               <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E] mt-5">
-                See how Nirvana Smart-Chain is transforming supply chain management and enhancing patient care across India's healthcare ecosystem.
+                See how Nirvana Smart-Chain is transforming supply chain management and enhancing patient care across India&apos;s healthcare ecosystem.
               </p>
             </div>
           </div>

@@ -19,33 +19,36 @@ const AnimatedText = () => {
   const pauseTime = 2000;
 
   useEffect(() => {
-    let timeout;
+  let timeout: NodeJS.Timeout | null = null; // Explicitly define type
 
-    const animate = () => {
-      const currentMessage = messages[messageIndex];
-      
-      if (!isDeleting) {
-        if (text.length < currentMessage.length) {
-          setText(currentMessage.slice(0, text.length + 1));
-          timeout = setTimeout(animate, typingSpeed);
-        } else {
-          timeout = setTimeout(() => setIsDeleting(true), pauseTime);
-        }
+  const animate = () => {
+    const currentMessage = messages[messageIndex];
+    
+    if (!isDeleting) {
+      if (text.length < currentMessage.length) {
+        setText(currentMessage.slice(0, text.length + 1));
+        timeout = setTimeout(animate, typingSpeed);
       } else {
-        if (text.length > 0) {
-          setText(text.slice(0, -1));
-          timeout = setTimeout(animate, deletingSpeed);
-        } else {
-          setIsDeleting(false);
-          setMessageIndex((prev) => (prev + 1) % messages.length);
-        }
+        timeout = setTimeout(() => setIsDeleting(true), pauseTime);
       }
-    };
+    } else {
+      if (text.length > 0) {
+        setText(text.slice(0, -1));
+        timeout = setTimeout(animate, deletingSpeed);
+      } else {
+        setIsDeleting(false);
+        setMessageIndex((prev) => (prev + 1) % messages.length);
+      }
+    }
+  };
 
-    timeout = setTimeout(animate, typingSpeed);
+  timeout = setTimeout(animate, typingSpeed);
 
-    return () => clearTimeout(timeout);
-  }, [text, isDeleting, messageIndex]);
+  return () => {
+    if (timeout) clearTimeout(timeout);
+  };
+}, [text, isDeleting, messageIndex]);
+
 
   return (
     <p className="text-white/60 md:block min-h-[24px]">

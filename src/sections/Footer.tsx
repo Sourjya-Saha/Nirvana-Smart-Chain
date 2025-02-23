@@ -9,7 +9,7 @@ import SocialYt from '@/assets/social-youtube.svg'
 
 export const Footer = () => {
   // Function to handle smooth scrolling
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const offset = element.offsetTop - 100; // Adjust offset to account for header height
@@ -28,7 +28,7 @@ export const Footer = () => {
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'Contact', id: 'contact' },
     { label: 'Updates', id: 'updates' }
-  ];
+  ] as const;
 
   return (
     <footer className="bg-black text-[#BCBCBC] text-sm py-10 text-center">

@@ -82,12 +82,12 @@ const TestimonialsRow = ({ testimonials, duration = 80 }) => (
         ease: "linear",
         repeatType: "loop",
       }} 
-      className="inline-flex pb-[15px] gap-6"
+      className="inline-flex gap-6"
     >
       {[...new Array(2)].fill(0).map((_, index) => (
         <React.Fragment key={index}>
           {testimonials.map(({ text, imageSrc, name, username }, idx) => (
-            <div key={idx} className="card inline-block w-80 whitespace-normal align-top">
+            <div key={idx} className="card inline-block mb-[15px] w-80 whitespace-normal align-top">
               <div className="min-h-32">{text}</div>
               <div className="flex items-center gap-2 mt-5">
                 <Image
@@ -113,7 +113,7 @@ const TestimonialsRow = ({ testimonials, duration = 80 }) => (
 export const Testimonial = () => {
   return (
     <>
-      <section className="bg-white py-16">
+      <section className="bg-white">
         <div className="container mx-auto">
           <div className="section-heading">
             <div className="flex justify-center">
@@ -124,7 +124,7 @@ export const Testimonial = () => {
                 What Our Clients Say
               </h2>
               <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E] mt-5">
-                See how MedTrack is transforming supply chain management and enhancing patient care across India's healthcare ecosystem.
+                See how Nirvana Smart-Chain is transforming supply chain management and enhancing patient care across India's healthcare ecosystem.
               </p>
             </div>
           </div>

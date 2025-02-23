@@ -1,15 +1,15 @@
 "use client";
-import Logo from "@/assets/Screenshot 2024-09-24 054804.png"
+import Logo from "@/assets/Screenshot 2024-09-24 054804.png";
 import Image from "next/image";
-import SocialX from '@/assets/social-x.svg'
-import SocialInsta from '@/assets/social-insta.svg'
-import SocialLinkedIIn from '@/assets/social-linkedin.svg'
-import SocialPin from '@/assets/social-pin.svg'
-import SocialYt from '@/assets/social-youtube.svg'
+import SocialX from '@/assets/social-x.svg';
+import SocialInsta from '@/assets/social-insta.svg';
+import SocialLinkedIIn from '@/assets/social-linkedin.svg';
+import SocialPin from '@/assets/social-pin.svg';
+import SocialYt from '@/assets/social-youtube.svg';
 
 export const Footer = () => {
   // Function to handle smooth scrolling
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {  // <-- Explicitly define type
     const element = document.getElementById(sectionId);
     if (element) {
       const offset = element.offsetTop - 100; // Adjust offset to account for header height

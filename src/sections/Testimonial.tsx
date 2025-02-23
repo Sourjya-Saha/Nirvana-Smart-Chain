@@ -1,4 +1,7 @@
 "use client";
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import avatar1 from "@/assets/images (4).png";
 import avatar2 from "@/assets/How_to_Find_a_Solidity_Developer_for_Hire_Comprehensive_Guide.png";
 import avatar3 from "@/assets/images__2_-removebg-preview.png";
@@ -8,19 +11,28 @@ import avatar6 from "@/assets/images.jpeg";
 import avatar7 from "@/assets/images (2).png";
 import avatar8 from "@/assets/images.jpeg";
 import avatar9 from "@/assets/flutter.png";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import React from 'react';
 
-const testimonials = [
+interface Testimonial {
+  text: string;
+  imageSrc: string;
+  name: string;
+  username: string;
+}
+
+interface TestimonialsRowProps {
+  testimonials: Testimonial[];
+  duration?: number;
+}
+
+const testimonials: Testimonial[] = [
   {
-    text: "MedTrack&apos;s real-time dashboard has revolutionized how we manage our inventory. We can now track every product from manufacture to delivery with complete transparency.",
+    text: "MedTrack's real-time dashboard has revolutionized how we manage our inventory. We can now track every product from manufacture to delivery with complete transparency.",
     imageSrc: avatar1.src,
     name: "Dr. Rajesh Kumar",
     username: "Metro Hospital, Delhi",
   },
   {
-    text: "The 2-step verification system gives us confidence that all our medical supplies are authentic. We&apos;ve eliminated counterfeit products completely since implementing MedTrack.",
+    text: "The 2-step verification system gives us confidence that all our medical supplies are authentic. We've eliminated counterfeit products completely since implementing MedTrack.",
     imageSrc: avatar2.src,
     name: "Priya Sharma",
     username: "Quality Manager, Apollo Pharmacy",
@@ -32,7 +44,7 @@ const testimonials = [
     username: "AIIMS Research Division",
   },
   {
-    text: "Shipment tracking has never been easier. We&apos;ve reduced delivery discrepancies by 67% and improved customer satisfaction scores to an all-time high.",
+    text: "Shipment tracking has never been easier. We've reduced delivery discrepancies by 67% and improved customer satisfaction scores to an all-time high.",
     imageSrc: avatar4.src,
     name: "Vikram Mehta",
     username: "LogiMed Distributors",
@@ -62,26 +74,23 @@ const testimonials = [
     username: "Epidemiologist, ICMR",
   },
   {
-    text: "Our patients love being able to verify medication authenticity through the app. It&apos;s built trust in our brand and increased customer loyalty measurably.",
+    text: "Our patients love being able to verify medication authenticity through the app. It's built trust in our brand and increased customer loyalty measurably.",
     imageSrc: avatar9.src,
     name: "Rahul Gupta",
     username: "Customer Experience, MedPlus",
   },
 ];
 
-// We'll create one long row instead of columns
-const TestimonialsRow = ({ testimonials, duration = 80 }) => (
+const TestimonialsRow: React.FC<TestimonialsRowProps> = ({ testimonials, duration = 80 }) => (
   <div className="overflow-hidden whitespace-nowrap w-full">
-    <motion.div 
-      animate={{
-        translateX: '-50%',
-      }}
+    <motion.div
+      animate={{ translateX: "-50%" }}
       transition={{
         duration: duration,
         repeat: Infinity,
         ease: "linear",
         repeatType: "loop",
-      }} 
+      }}
       className="inline-flex gap-6"
     >
       {[...new Array(2)].fill(0).map((_, index) => (
@@ -92,13 +101,15 @@ const TestimonialsRow = ({ testimonials, duration = 80 }) => (
               <div className="flex items-center gap-2 mt-5">
                 <Image
                   src={imageSrc}
-                  alt="image"
+                  alt={name}
                   width={40}
                   height={40}
                   className="h-10 w-10 rounded-full"
                 />
                 <div className="flex flex-col">
-                  <div className="bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text text-[19px] font-medium tracking-tighter leading-5">{name}</div>
+                  <div className="bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text text-[19px] font-medium tracking-tighter leading-5">
+                    {name}
+                  </div>
                   <div className="leading-5 tracking-tight">{username}</div>
                 </div>
               </div>
@@ -110,32 +121,34 @@ const TestimonialsRow = ({ testimonials, duration = 80 }) => (
   </div>
 );
 
-export const Testimonial = () => {
+export const Testimonial: React.FC = () => {
   return (
-    <>
-      <section className="bg-white">
-        <div className="container mx-auto">
-          <div className="section-heading">
-            <div className="flex justify-center">
-              <div className="tag mt-10 bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">Version 1.0 is here</div>
-            </div>
-            <div className="max-w-[640px] mx-auto">
-              <h2 className="heading text-center text-5xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter mt-5">
-                What Our Clients Say
-              </h2>
-              <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E] mt-5">
-                See how Nirvana Smart-Chain is transforming supply chain management and enhancing patient care across India&apos;s healthcare ecosystem.
-              </p>
+    <section className="bg-white">
+      <div className="container mx-auto">
+        <div className="section-heading">
+          <div className="flex justify-center">
+            <div className="tag mt-10 bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">
+              Version 1.0 is here
             </div>
           </div>
-          
-          <div className="mt-16 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] overflow-hidden">
-            <div className="py-8">
-              <TestimonialsRow testimonials={testimonials} duration={40} />
-            </div>
+          <div className="max-w-[640px] mx-auto">
+            <h2 className="heading text-center text-5xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter mt-5">
+              What Our Clients Say
+            </h2>
+            <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E] mt-5">
+              See how Nirvana Smart-Chain is transforming supply chain management and enhancing patient care across India&apos;s healthcare ecosystem.
+            </p>
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="mt-16 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] overflow-hidden">
+          <div className="py-8">
+            <TestimonialsRow testimonials={testimonials} duration={40} />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
+
+export default Testimonial;

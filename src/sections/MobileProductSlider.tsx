@@ -13,7 +13,8 @@ const ThreeDMobileCarousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const sectionRef = useRef(null);
-  const touchStartX = useRef(null);
+const touchStartX = useRef<number | null>(null);
+
 
   const images = [
     ProductImg,

@@ -97,43 +97,50 @@ const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
   })
 };
 
-  const PhoneFrame = ({ imageIndex, offset = 0, isMain = false }) => {
-    const xOffset = offset * 300;
-    const scale = isMain ? 1 : 0.8;
-    const zIndex = isMain ? 10 : 0;
-    const opacity = isMain ? 1 : 0.5;
-    
-    return (
-      <motion.div
-        className="absolute w-[320px] rounded-[3rem] overflow-hidden bg-white"
-        style={{
-          height: '650px',
-          border: '12px solid #1a1a1a',
-          transform: `translate(${xOffset}px, 0) scale(${scale})`,
-          filter: isMain ? 'none' : 'blur(4px)',
-          opacity,
-          zIndex,
-        }}
-        animate={{ 
-          x: xOffset,
-          scale,
-          opacity,
-          filter: isMain ? 'none' : 'blur(4px)'
-        }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[120px] h-[25px] bg-black rounded-b-2xl" />
-        <div className="relative h-full">
-          <Image
-            src={images[imageIndex]}
-            alt={`Phone Screen ${imageIndex + 1}`}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      </motion.div>
-    );
-  };
+interface PhoneFrameProps {
+  imageIndex: number;
+  offset?: number;
+  isMain?: boolean;
+}
+
+const PhoneFrame: React.FC<PhoneFrameProps> = ({ imageIndex, offset = 0, isMain = false }) => {
+  const xOffset = offset * 300;
+  const scale = isMain ? 1 : 0.8;
+  const zIndex = isMain ? 10 : 0;
+  const opacity = isMain ? 1 : 0.5;
+  
+  return (
+    <motion.div
+      className="absolute w-[320px] rounded-[3rem] overflow-hidden bg-white"
+      style={{
+        height: '650px',
+        border: '12px solid #1a1a1a',
+        transform: `translate(${xOffset}px, 0) scale(${scale})`,
+        filter: isMain ? 'none' : 'blur(4px)',
+        opacity,
+        zIndex,
+      }}
+      animate={{ 
+        x: xOffset,
+        scale,
+        opacity,
+        filter: isMain ? 'none' : 'blur(4px)'
+      }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[120px] h-[25px] bg-black rounded-b-2xl" />
+      <div className="relative h-full">
+        <Image
+          src={images[imageIndex]}
+          alt={`Phone Screen ${imageIndex + 1}`}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+    </motion.div>
+  );
+};
+
 
   return (
     <section 

@@ -39,28 +39,24 @@ export const ProductShowcase = () => {
   const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
 
   // Touch handlers for manual sliding
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
+ const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+  touchStartX.current = e.touches[0].clientX;
+};
 
-  const handleTouchEnd = (e) => {
-    if (!touchStartX.current) return;
+const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+  if (!touchStartX.current) return;
 
-    const touchEndX = e.changedTouches[0].clientX;
-    const deltaX = touchEndX - touchStartX.current;
+  const touchEndX = e.changedTouches[0].clientX;
+  const deltaX = touchEndX - touchStartX.current;
 
-    if (Math.abs(deltaX) > 50) { // Minimum swipe distance
-      if (deltaX > 0) {
-        // Swipe right
-        setCurrentImageIndex(prev => prev === 0 ? images.length - 1 : prev - 1);
-      } else {
-        // Swipe left
-        setCurrentImageIndex(prev => prev === images.length - 1 ? 0 : prev + 1);
-      }
-    }
+  if (Math.abs(deltaX) > 50) {
+    setCurrentImageIndex((prev) =>
+      deltaX > 0 ? (prev === 0 ? images.length - 1 : prev - 1) : (prev === images.length - 1 ? 0 : prev + 1)
+    );
+  }
 
-    touchStartX.current = null;
-  };
+  touchStartX.current = null;
+};
 
   return (
     <>

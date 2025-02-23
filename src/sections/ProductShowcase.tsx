@@ -12,7 +12,8 @@ import { useRef, useState, useEffect } from "react";
 export const ProductShowcase = () => {
   const sectionRef = useRef(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const touchStartX = useRef(null);
+  const touchStartX = useRef<number | null>(null);
+
 
   const images = [
     Productimg,

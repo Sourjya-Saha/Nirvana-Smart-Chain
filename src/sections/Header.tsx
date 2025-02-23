@@ -64,17 +64,18 @@ export const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = element.offsetTop - 100; // Adjust offset to account for header height
-      window.scrollTo({
-        top: offset,
-        behavior: 'smooth'
-      });
-    }
-    setMobileMenuOpen(false); // Close mobile menu after clicking
-  };
+  const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const offset = element.offsetTop - 100; // Adjust offset to account for header height
+    window.scrollTo({
+      top: offset,
+      behavior: 'smooth'
+    });
+  }
+  setMobileMenuOpen(false); // Close mobile menu after clicking
+};
+
 
   const navItems = [
     { label: 'About', id: 'about' },

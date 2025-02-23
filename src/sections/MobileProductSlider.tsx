@@ -65,37 +65,37 @@ const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
 
 
   const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-      rotateY: direction > 0 ? 45 : -45,
-      scale: 0.8,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      rotateY: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
-    },
-    exit: (direction) => ({
-      x: direction > 0 ? -1000 : 1000,
-      opacity: 0,
-      rotateY: direction > 0 ? -45 : 45,
-      scale: 0.8,
-      transition: {
-        duration: 0.8,
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
-    })
-  };
+  enter: (direction: number) => ({
+    x: direction > 0 ? 1000 : -1000,
+    opacity: 0,
+    rotateY: direction > 0 ? 45 : -45,
+    scale: 0.8,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    rotateY: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      type: "spring",
+      stiffness: 300,
+      damping: 30
+    }
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -1000 : 1000,
+    opacity: 0,
+    rotateY: direction > 0 ? -45 : 45,
+    scale: 0.8,
+    transition: {
+      duration: 0.8,
+      type: "spring",
+      stiffness: 300,
+      damping: 30
+    }
+  })
+};
 
   const PhoneFrame = ({ imageIndex, offset = 0, isMain = false }) => {
     const xOffset = offset * 300;

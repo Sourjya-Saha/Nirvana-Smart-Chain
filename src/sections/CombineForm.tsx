@@ -232,17 +232,18 @@ const CombinedForm = () => {
     };
     
     // Color mapping based on rating
-    const getColor = (rating) => {
-      const colors = {
-        0: "#CBD5E1", // gray
-        1: "#EF4444", // red
-        2: "#F97316", // orange
-        3: "#FACC15", // yellow
-        4: "#A3E635", // lime
-        5: "#22C55E"  // green
-      };
-      return colors[rating] || "#CBD5E1";
-    };
+    const getColor = (rating: number): string => {
+  const colors: { [key: number]: string } = {
+    0: "#CBD5E1", // gray
+    1: "#EF4444", // red
+    2: "#F97316", // orange
+    3: "#FACC15", // yellow
+    4: "#A3E635", // lime
+    5: "#22C55E"  // green
+  };
+  return colors[rating] || "#CBD5E1";
+};
+
     
     // Display rating or hover rating
     const displayRating = hoverRating || value;

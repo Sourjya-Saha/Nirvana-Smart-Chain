@@ -668,7 +668,8 @@ const CombinedForm = () => {
                       animate={{ opacity: 1, y: 0 }}
                       className="bg-green-50 text-green-800 rounded-lg p-3 sm:p-4 flex items-center justify-center border border-green-200 text-sm sm:text-base"
                     >
-                      <p>Message sent successfully! We'll get back to you soon.</p>
+                     <p>Message sent successfully! We&apos;ll get back to you soon.</p>
+
                     </motion.div>
                   )}
                   {status === 'error' && (

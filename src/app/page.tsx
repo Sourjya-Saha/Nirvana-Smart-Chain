@@ -1,4 +1,5 @@
 import { CallToAction } from "@/sections/CallToAction";
+import CombinedForm from "@/sections/CombineForm";
 import ContactUs from "@/sections/ContactUs";
 import { Footer } from "@/sections/Footer";
 import { Header } from "@/sections/Header";
@@ -6,10 +7,12 @@ import { Hero } from "@/sections/Hero";
 import { LogoTicker } from "@/sections/LogoTicker";
 import MobileProductSlider from "@/sections/MobileProductSlider";
 import { ProductShowcase } from "@/sections/ProductShowcase";
+import ReviewSystem from "@/sections/ReviewSystem";
 import TeamSection from "@/sections/TeamSection";
 import { Testimonial } from "@/sections/Testimonial";
 import { Testimonials } from "@/sections/Testimonials";
 import { Tracking } from "@/sections/Tracking";
+import { Combine } from "lucide-react";
 
 export default function Home() {
   return (
@@ -45,14 +48,17 @@ export default function Home() {
 
       {/* Contact section includes ContactUs and CallToAction */}
       <div id="contact">
-        <ContactUs />
-        <CallToAction />
+<CombinedForm/>
+        
+        
       </div>
 
       {/* Updates section would be added here when needed */}
       <div id="updates">
-        {/* Future updates section content */}
+      <CallToAction />
+    
       </div>
+    
 
       <Footer />
     </>

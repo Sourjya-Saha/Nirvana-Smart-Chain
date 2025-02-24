@@ -313,13 +313,14 @@ const CombinedForm = () => {
                         repeatDelay: 2
                       }}
                     >
-                      {emojis[displayRating].icon}
+                    {emojis[displayRating as keyof typeof emojis].icon}
                     </motion.span>
                     <span 
                       className="text-sm font-medium"
                       style={{ color: getColor(displayRating) }}
                     >
-                      {emojis[displayRating].label}
+                    {emojis[displayRating as keyof typeof emojis].label}
+
                     </span>
                   </div>
                   

@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model pharmareview {
+  id                     Int       @id @default(autoincrement())
+  reviewerName           String    @db.VarChar(255)
+  ideaRating             Int
+  liveTraceRating        Int
+  authenticationSecure   String    @db.VarChar(10)
+  authenticationComment  String?   @db.Text
+  dashboardEffectiveness Int
+  improvementSuggestions String?   @db.Text
+  createdAt              DateTime? @default(now()) @db.DateTime(0)
+  updatedAt              DateTime? @default(now()) @db.DateTime(0)
+
+  @@index([createdAt(sort: Desc)], map: "idx_createdAt")
+}

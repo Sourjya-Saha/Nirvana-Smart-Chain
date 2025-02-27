@@ -15,20 +15,36 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-
-    // Create the review in the database using the correct model name
-    const review = await prisma.pharmareview.create({
-      data: {
-        reviewerName: data.name,
-        ideaRating: parseInt(data.ideaRating) || 0,
-        liveTraceRating: parseInt(data.liveTraceRating) || 0,
-        authenticationSecure: data.authenticationSecure || '',
-        authenticationComment: data.authenticationComment || null,
-        dashboardEffectiveness: parseInt(data.dashboardEffectiveness) || 0,
-        improvementSuggestions: data.improvementSuggestions || null,
-      },
-    });
-
+    
+    // Create the review in the database with all the new fields
+// Create the review in the database with all the new fields
+const review = await prisma.pharmareview.create({
+  data: {
+    reviewerName: data.name,
+    // Challenge assessment fields
+    trackingDifficulty: parseInt(data.trackingDifficulty) || 0,
+    shortageImportance: parseInt(data.shortageImportance) || 0,
+    verificationChallenge: parseInt(data.verificationChallenge) || 0,
+    communicationFrequency: parseInt(data.communicationFrequency) || 0,
+    visibilityImportance: parseInt(data.visibilityImportance) || 0,
+    counterfeitConcern: parseInt(data.counterfeitConcern) || 0,
+    regulatoryWorkload: parseInt(data.regulatoryWorkload) || 0,
+    
+    // Authentication fields
+    localRetailerComfort: data.localRetailerComfort || '',
+    localRetailerComment: data.localRetailerComment || '',
+    
+    // Feature importance fields
+    barcodeUseful: parseInt(data.barcodeUseful) || 0,
+    alertsImportance: parseInt(data.alertsImportance) || 0,
+    messagingValue: parseInt(data.messagingValue) || 0,
+    reportsNecessity: parseInt(data.reportsNecessity) || 0,
+    blockchainImportance: parseInt(data.blockchainImportance) || 0,
+    
+    // General feedback
+    generalFeedback: data.generalFeedback || '',
+  },
+});
     return NextResponse.json(
       { success: true, reviewId: review.id },
       { status: 201 }
@@ -49,7 +65,7 @@ export async function GET() {
         createdAt: 'desc',
       },
     });
-
+    
     return NextResponse.json(reviews);
   } catch (error) {
     console.error('Error fetching reviews:', error);

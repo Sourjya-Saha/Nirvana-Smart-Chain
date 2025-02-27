@@ -37,7 +37,9 @@ export const Hero = () => {
   📱 <strong>Web & Android App:</strong> Prevent counterfeits, ensure accurate inventory, and enhance tracking. <br />
   💊 <strong>Advanced Drug Inventory System:</strong> Monitor drug consumption patterns, ensure transparency, and boost efficiency. <br />
   📊 <strong>Dashboard-Based Monitoring:</strong> Track vendors, shipments, and hospital drug usage in real-time. <br />
-  🚚 <strong>Improved Procurement:</strong> Ensure drug availability, streamline distribution, and enforce quality controls.  
+  🚚 <strong>Improved Procurement:</strong> Ensure drug availability, streamline distribution, and enforce quality controls.<br/>
+  🛡️<strong>Enhanced Security:</strong>We provide
+  cutting-edge tracking technology 🔍 to verify authenticity and safeguard patients from such dangerous scams .
 </p>
 
             <div className="flex gap-1 items-center mt-[30px]">

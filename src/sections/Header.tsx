@@ -83,6 +83,7 @@ export const Header = () => {
     { label: 'Features', id: 'features' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'Contact', id: 'contact' },
+    { label: 'News', id: 'news' },
     { label: 'Updates', id: 'updates' }
   ];
 

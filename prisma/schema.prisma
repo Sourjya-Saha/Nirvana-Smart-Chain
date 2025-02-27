@@ -1,23 +1,43 @@
-generator client {
-  provider = "prisma-client-js"
-}
-
+// This is your Prisma schema file
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-model pharmareview {
-  id                     Int       @id @default(autoincrement())
-  reviewerName           String    @db.VarChar(255)
-  ideaRating             Int
-  liveTraceRating        Int
-  authenticationSecure   String    @db.VarChar(10)
-  authenticationComment  String?   @db.Text
-  dashboardEffectiveness Int
-  improvementSuggestions String?   @db.Text
-  createdAt              DateTime? @default(now()) @db.DateTime(0)
-  updatedAt              DateTime? @default(now()) @db.DateTime(0)
+generator client {
+  provider = "prisma-client-js"
+}
 
-  @@index([createdAt(sort: Desc)], map: "idx_createdAt")
+model pharmareview {
+  id                   Int      @id @default(autoincrement())
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  
+  // Basic info
+  reviewerName         String
+
+  // Challenge assessment fields
+  trackingDifficulty    Int    @default(0)
+  shortageImportance    Int    @default(0)
+  verificationChallenge Int    @default(0)
+  communicationFrequency Int   @default(0)
+  visibilityImportance  Int    @default(0)
+  counterfeitConcern    Int    @default(0)
+  regulatoryWorkload    Int    @default(0)
+  
+  // Authentication fields
+  localRetailerComfort  String
+  localRetailerComment  String?
+  
+  // Feature importance fields
+  barcodeUseful         Int    @default(0)
+  alertsImportance      Int    @default(0)
+  messagingValue        Int    @default(0)
+  reportsNecessity      Int    @default(0)
+  blockchainImportance  Int    @default(0)
+  
+  // General feedback
+  generalFeedback       String?
+
+  @@map("pharmareview")
 }

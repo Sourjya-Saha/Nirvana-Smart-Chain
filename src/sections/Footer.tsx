@@ -26,6 +26,7 @@ export const Footer = () => {
     { label: 'Products', id: 'products' },
     { label: 'Features', id: 'features' },
     { label: 'Testimonials', id: 'testimonials' },
+    { label: 'News', id: 'news' },
     { label: 'Contact', id: 'contact' },
     { label: 'Updates', id: 'updates' }
   ];

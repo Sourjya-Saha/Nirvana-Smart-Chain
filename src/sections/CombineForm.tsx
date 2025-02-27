@@ -407,7 +407,7 @@ const CombinedForm = () => {
             Get in Touch
           </h2>
           <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E] mt-5">
-            We'd love to hear from you! 💬 Share your experience or ask any questions—your feedback helps us enhance our pharmaceutical inventory and tracking system 🚀
+            We&apos;d love to hear from you! 💬 Share your experience or ask any questions—your feedback helps us enhance our pharmaceutical inventory and tracking system 🚀
           </p>
         </motion.div>
 
@@ -631,7 +631,7 @@ const CombinedForm = () => {
                       animate={{ opacity: 1, y: 0 }}
                       className="bg-green-50 text-green-800 rounded-lg p-3 sm:p-4 flex items-center justify-center border border-green-200 text-sm sm:text-base"
                     >
-                      <p>Message sent successfully! We'll get back to you soon.</p>
+                      <p>Message sent successfully! We&apos;ll get back to you soon.</p>
                     </motion.div>
                   )}
                   {status === 'error' && (
@@ -902,7 +902,7 @@ const CombinedForm = () => {
   <div className="space-y-6">
     <div>
       <label htmlFor="generalFeedback" className=" text-[16px] font-semibold  leading-[30px] tracking-tight text-[#010D3E]  ">
-        Any additional suggestions or improvements you'd like to share?
+        Any additional suggestions or improvements you&apos;d like to share?
       </label>
       <textarea
         id="generalFeedback"

@@ -1,3 +1,4 @@
+import { Articles } from "@/sections/Articles";
 import { CallToAction } from "@/sections/CallToAction";
 import CombinedForm from "@/sections/CombineForm";
 import ContactUs from "@/sections/ContactUs";
@@ -30,6 +31,8 @@ export default function Home() {
         <ProductShowcase />
         <MobileProductSlider />
         <Tracking />
+       
+        
       </div>
 
       {/* Features section with Tracking */}
@@ -45,7 +48,9 @@ export default function Home() {
 
       {/* Team section */}
       <TeamSection />
-
+      <div id="news">
+      <Articles/>
+     </div>
       {/* Contact section includes ContactUs and CallToAction */}
       <div id="contact">
 <CombinedForm/>

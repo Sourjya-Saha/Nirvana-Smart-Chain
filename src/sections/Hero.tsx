@@ -79,7 +79,7 @@ export const Hero = () => {
   const mouseY = useMotionValue(0);
   
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       // Normalize between -1 and 1
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = (e.clientY / window.innerHeight) * 2 - 1;
@@ -155,7 +155,6 @@ export const Hero = () => {
       }
     }
   };
-
   return (
     <section
       ref={heroRef}

@@ -134,8 +134,7 @@ export const Testimonials = () => {
                 Our Features
               </h2>
               <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E] mt-5">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt
-                dolorem placeat, pariatur illum nisi eum.
+                Discover our exclusive features designed to elevate your experience! 🌟 With a <b>user-friendly </b>interface for seamless navigation, <b>high-speed performance </b>for lightning-fast actions⚡Experience the best with us!🚀
               </p>
             </div>
           </div>

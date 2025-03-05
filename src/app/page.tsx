@@ -18,54 +18,54 @@ import { Combine } from "lucide-react";
 export default function Home() {
   return (
     <>
+     
       <Header />
-      
+     
       {/* About section starts with Hero */}
-      <div id="about">
+      <div id="about" className="overflow-hidden">
         <Hero />
         <LogoTicker />
       </div>
 
       {/* Products section includes ProductShowcase and MobileProductSlider */}
-      <div id="products">
+      <div id="products" className="overflow-hidden">
         <ProductShowcase />
         <MobileProductSlider />
         <Tracking />
-       
-        
       </div>
 
       {/* Features section with Tracking */}
-      <div id="features">
-      <Testimonials />
+      <div id="features" className="overflow-hidden">
+        <Testimonials />
       </div>
 
       {/* Testimonials section combines both testimonial components */}
-      <div id="testimonials">
-       
+      <div id="testimonials" className="overflow-hidden">
         <Testimonial />
       </div>
 
       {/* Team section */}
-      <TeamSection />
-      <div id="news">
-      <Articles/>
-     </div>
+      <div id="team" className="overflow-hidden">
+        <TeamSection />
+      </div>
+
+      {/* News section */}
+      <div id="news" className="overflow-hidden">
+        <Articles />
+      </div>
+
       {/* Contact section includes ContactUs and CallToAction */}
-      <div id="contact">
-<CombinedForm/>
-        
-        
+      <div id="contact" className="overflow-hidden">
+        <CombinedForm />
       </div>
 
       {/* Updates section would be added here when needed */}
-      <div id="updates">
-      <CallToAction />
-    
+      <div id="updates" className="overflow-hidden">
+        <CallToAction />
       </div>
-    
 
       <Footer />
+     
     </>
   );
 }

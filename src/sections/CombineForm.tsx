@@ -1256,7 +1256,7 @@ const t = translations[currentLanguage as keyof typeof translations];
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-6 sm:py-8 md:py-12 overflow-hidden ">
+    <section className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 py-6 sm:py-8 md:py-12 relative">
         <div className="container max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Language selector */}
         <motion.div 
